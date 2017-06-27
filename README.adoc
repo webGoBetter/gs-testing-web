@@ -43,7 +43,7 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 include::complete/src/main/java/hello/HomeController.java[]
 ----
 
-NOTE: 以上例子不指定 `GET` 和 `PUT`, `POST`等等，因为 `@RequestMapping` 默认映射所有的HTTP操作。使用 `@RequestMapping(method=GET)` 缩小这种映射。
+NOTE: 以上例子不指定 `GET` 和 `PUT`, `POST` 等等，因为 `@RequestMapping` 默认映射所有的HTTP操作。使用 `@RequestMapping(method=GET)` 缩小这种映射。
 
 
 == 使应用程序可执行
