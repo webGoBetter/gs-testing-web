@@ -12,12 +12,12 @@ projects: [spring-framework,spring-boot]
 :project_id: gs-testing-web
 This guide walks you through the process of creating a Spring application.
 
-== What you'll build
+== 你将做出什么
 
 You'll build a simple Spring application and test it with JUnit. You probably already know how to write and run unit tests of the individual classes in your application, so for this guide we will concentrate on using Spring Test and Spring Boot features to test the interactions between Spring and your code. You will start with a simple test that the application context loads successfully, and continue on to test just the web layer using Spring's `MockMvc`.
 
 
-== What you'll need
+== 你需要什么
 
 :java_version: 1.8
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
@@ -34,7 +34,7 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 
 
 [[initial]]
-== Create a simple application
+== 创建一个简单的应用
 
 Create a new controller for your Spring application:
 
@@ -75,7 +75,7 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 Logging output is displayed. The service should be up and running within a few seconds.
 
 
-== Test the application
+== 测试应用
 
 Now that the application is running, you can test it. If it is running you can load the home page on http://localhost:8080. But to give yourself more confidence that the application is working when you make changes, you want to automate the testing.
 
@@ -187,7 +187,7 @@ include::complete/src/test/java/hello/WebMockTest.java[]
 We use `@MockBean` to create and inject a mock for the `GreetingService` (if you don't do this the application context cannot start), and we set its expectations using `Mockito`.
 
 
-== Summary
+== 总结
 
 Congratulations! You've just developed a Spring application and tested it with JUnit and Spring `MockMvc` using Spring Boot to isolate the web layer and load a special application context.  
 
