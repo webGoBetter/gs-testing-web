@@ -10,12 +10,11 @@ projects: [spring-framework,spring-boot]
 :icons: font
 :source-highlighter: prettify
 :project_id: gs-testing-web
-This guide walks you through the process of creating a Spring application.
+本指南将帮助您了解创建Spring应用程序的过程。
 
 == 你将做出什么
 
-You'll build a simple Spring application and test it with JUnit. You probably already know how to write and run unit tests of the individual classes in your application, so for this guide we will concentrate on using Spring Test and Spring Boot features to test the interactions between Spring and your code. You will start with a simple test that the application context loads successfully, and continue on to test just the web layer using Spring's `MockMvc`.
-
+您将构建一个简单的Spring的应用和并用JUnit测试它。您可能已经知道如何编写和运行应用程序中各个类的单元测试，因此对于本指南，我们将集中讨论使用Spring Test和Spring Boot特性来测试Spring和你的代码代码之间的交互。你将从一个简单地测试应用程序上下文加载成功，并继续测试只是Web层使用Spring的`MockMvc`。
 
 == 你需要什么
 
@@ -47,7 +46,7 @@ include::complete/src/main/java/hello/HomeController.java[]
 NOTE: The above example does not specify `GET` vs. `PUT`, `POST`, and so forth, because `@RequestMapping` maps all HTTP operations by default. Use `@RequestMapping(method=GET)` to narrow this mapping.
 
 
-== Make the application executable
+== 使应用程序可执行
 
 Although it is possible to package this service as a traditional link:/understanding/WAR[WAR] file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application. You package everything in a single, executable JAR file, driven by a good old Java `main()` method. Along the way, you use Spring's support for embedding the link:/understanding/Tomcat[Tomcat] servlet container as the HTTP runtime, instead of deploying to an external instance.
 
