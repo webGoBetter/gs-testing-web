@@ -19,16 +19,16 @@ projects: [spring-framework,spring-boot]
 == 你需要什么
 
 :java_version: 1.8
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-gradle.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/hide-show-gradle.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-maven.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/hide-show-maven.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-sts.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/hide-show-sts.adoc[]
 
 
 
@@ -59,9 +59,9 @@ include::complete/src/main/java/hello/Application.java[]
 
 include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/spring-boot-application.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_subhead.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/build_an_executable_jar_subhead.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_with_both.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/build_an_executable_jar_with_both.adoc[]
 
 
 日志输出显示。应用程序应该在几秒钟内启动和运行。
@@ -182,5 +182,5 @@ include::complete/src/test/java/hello/WebMockTest.java[]
 
 祝贺你!你刚刚开发出一种Spring的应用,并使用JUnit和带有Spring Boot隔离Web层和负载的特殊应用环境 `MockMvc` 注解的Spring 来测试它。
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/footer.adoc[]
 
