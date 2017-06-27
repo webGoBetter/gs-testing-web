@@ -48,7 +48,7 @@ NOTE: 以上例子不指定 `GET` 和 `PUT`, `POST` 等等，因为 `@RequestMap
 
 == 使应用程序可执行
 
-虽然可以将此服务打包为一个传统的 link:/understanding/WAR[WAR] 文件用于部署到外部应用服务器，更为简单的方法是创建了一个独立的应用程序。通过一个 good old Java `main()`方法，你能将一切打包成为一个单一的克执行 JAR 文件。在这一过程中，您使用Spring的提供的 link:/understanding/Tomcat[Tomcat]  servlet容器作为HTTP运行时，而不是将它部署的到一个外部实例在中。
+虽然可以将此服务打包为一个传统的 link:/understanding/WAR[WAR] 文件用于部署到外部应用服务器，更为简单的方法是创建了一个独立的应用程序。通过一个 good old Java `main()` 方法，你能将一切打包成为一个单一的克执行 JAR 文件。在这一过程中，您使用Spring的提供的 link:/understanding/Tomcat[Tomcat]  servlet容器作为HTTP运行时，而不是将它部署的到一个外部实例在中。
 
 
 `src/main/java/hello/Application.java`
@@ -109,7 +109,7 @@ public class ApplicationTest {
 }
 ----
 
-`@SpringBootTest`注释告诉Spring Boot去寻找主配置类（例如一个带有 `@SpringBootApplication` 的类），用以启动一个Spring应用程序上下文。你可以在你的IDE或在命令行中运行这个测试 (`mvn test` or `gradle test`) ，它应该会通过。为了使自己确信上下文正在创建控制器，可以添加断言：
+`@SpringBootTest` 注释告诉Spring Boot去寻找主配置类（例如一个带有 `@SpringBootApplication` 的类），用以启动一个Spring应用程序上下文。你可以在你的IDE或在命令行中运行这个测试 (`mvn test` or `gradle test`) ，它应该会通过。为了使自己确信上下文正在创建控制器，可以添加断言：
 
 `src/test/java/hello/SmokeTest.java`
 [source,java]
@@ -117,11 +117,11 @@ public class ApplicationTest {
 include::complete/src/test/java/hello/SmokeTest.java[]
 ----
 
-The `@Autowired` annotation is interpreted by the Spring and the controller is injected before the test methods are run. We are using http://joel-costigliola.github.io/assertj/[AssertJ] (`assertThat()` etc.) to express the test assertions.
+`@Autowired` 注释是由Spring 解释,控制器会在测试方法运行前注入的。我们使用的是 http://joel-costigliola.github.io/assertj/[AssertJ] (`assertThat()` 等等)来表达测试断言。
 
-NOTE: A nice feature of the Spring Test support is that the application context is cached in between tests, so if you have multiple methods in a test case, or multiple test cases with the same configuration, they only incur the cost of starting the application once. You can control the cache using the {DirtiesContext}[`@DirtiesContext`] annotation.
+NOTE: Spring测试支持的一个很好的特性是在测试之间缓存应用程序上下文，所以如果在测试用例中有多个方法，或者具有相同配置的多个测试用例，它们只会产生一次启动应用程序的成本。你可以通过 {DirtiesContext}[`@DirtiesContext`] 注释控制缓存使用。
 
-It's nice to have a sanity check like that, but we should also write some tests that assert the behaviour of our application. To do that we could start the application up and listen for a connection like it would do in production, and then send an HTTP request and assert the response.
+有这样的检查是很好的，但是我们也应该编写一些测试来验证我们的应用程序的行为。为了做到这一点，我们可以启动应用程序并监听它在生产中所做的连接，然后发送HTTP请求并断言响应。
 
 `src/test/java/hello/HttpRequestTest.java`
 [source,java]
@@ -129,9 +129,9 @@ It's nice to have a sanity check like that, but we should also write some tests 
 include::complete/src/test/java/hello/HttpRequestTest.java[]
 ----
 
-Note the use of `webEnvironment=RANDOM_PORT` to start the server with a random port (useful to avoid conflicts in test environments), and the injection of the port with `@LocalServerPort`. Also note that Spring Boot has provided a `TestRestTemplate` for you automatically, and all you have to do is `@Autowired` it.
+注意 `webEnvironment=RANDOM_PORT` 用随机端口启动服务器（避免在测试环境中的冲突是有用的），与 `@LocalServerPort` 注射端口的用法。还要注意Spring Boot已自动为你提供了一个 `TestRestTemplate` 注释，所有你所要做的就是 `@Autowired` 它。
 
-Another useful approach is to not start the server at all, but test only the layer below that, where Spring handles the incoming HTTP request and hands it off to your controller. That way, almost the full stack is used, and your code will be called exactly the same way as if it was processing a real HTTP request, but without the cost of starting the server. To do that we will use Spring's `MockMvc`, and we can ask for that to be injected for us by using the `@AutoConfigureMockMvc` annotation on the test case:
+另一个有用的方法是根本不启动服务器，但只测试下面的层，其中Spring处理传入的HTTP请求并将其交给控制器。这样，几乎可以使用完整的堆栈，并且您的代码将被调用的方式与处理一个真正的HTTP请求完全相同，但不需要花时间启动服务器。这样做，我们将使用Spring的 `MockMvc` ，我们可以得到用 `@AutoConfigureMockMvc` 注解的测试用例：
 
 `src/test/java/hello/ApplicationTest.java`
 [source,java]
@@ -139,7 +139,7 @@ Another useful approach is to not start the server at all, but test only the lay
 include::complete/src/test/java/hello/ApplicationTest.java[]
 ----
 
-In this test, the full Spring application context is started, but without the server. We can narrow down the tests to just the web layer by using `@WebMvcTest`:
+在这个测试中，启动了完整的Spring应用程序上下文，但没有服务器。我们可以缩小测试只是Web层采用 `@WebMvcTest` ：
 
 `src/test/java/hello/WebLayerTest.java`
 [source,java]
@@ -149,9 +149,9 @@ In this test, the full Spring application context is started, but without the se
 include::complete/src/test/java/hello/WebLayerTest.java[tag=test]
 ----
 
-The test assertion is the same as in the previous case, but here Spring Boot is only instantiating the web layer, not the whole context. In an application with multiple controllers you can even ask for just one to be instantiated, using, for example `@WebMvcTest(HomeController.class)`
+测试断言是在先前的情况一样，但这里Spring Boot只实例化Web层，而不是整个山下文。你甚至可以在具有多个控制器的一个应用中只实例化其中一个控制器，例如使用 `@WebMvcTest(HomeController.class)`的情况下
 
-So far, our `HomeController` is very simple and has no dependencies. We could make it more realistic by introducing an extra component to store the greeting. E.g. in a new controller:
+到目前为止，我们的` HomeController `非常简单，没有依赖。我们可以通过引入一个额外的组件来存储问候语，从而使它更加贴近现实。在一个新控制器中：
 
 `src/main/java/hello/GreetingController.java`
 [source,java]
@@ -167,7 +167,7 @@ and then
 include::complete/src/main/java/hello/GreetingService.java[]
 ----
 
-The service dependency will be automatically injected by Spring into the controller (because of the constructor signature). To test this controller with `@WebMvcTest` you can do this
+服务依赖项将自动注入Spring到控制器中（因为构造函数签名）。 你可以像这样使用 `@WebMvcTest` 测试控制器
 
 `src/test/java/hello/WebMockTest.java`
 [source,java]
@@ -175,13 +175,12 @@ The service dependency will be automatically injected by Spring into the control
 include::complete/src/test/java/hello/WebMockTest.java[]
 ----
 
-We use `@MockBean` to create and inject a mock for the `GreetingService` (if you don't do this the application context cannot start), and we set its expectations using `Mockito`.
+我们用 `@MockBean` 创建并注入模拟的 `GreetingService` （如果你不这样做应用程序上下文不能启动），我们将使用 `Mockito` 判断他的值。
 
 
 == 总结
 
-Congratulations! You've just developed a Spring application and tested it with JUnit and Spring `MockMvc` using Spring Boot to isolate the web layer and load a special application context.  
-
+祝贺你!你刚刚开发出一种Spring的应用,并使用JUnit和带有Spring Boot隔离Web层和负载的特殊应用环境 `MockMvc` 注解的Spring 来测试它。
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
 
