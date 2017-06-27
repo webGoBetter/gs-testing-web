@@ -35,7 +35,7 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 [[initial]]
 == 创建一个简单的应用
 
-Create a new controller for your Spring application:
+为你的Spring应用程序创建一个新控制器：
 
 `src/main/java/hello/HomeController.java`
 [source,java]
@@ -43,12 +43,12 @@ Create a new controller for your Spring application:
 include::complete/src/main/java/hello/HomeController.java[]
 ----
 
-NOTE: The above example does not specify `GET` vs. `PUT`, `POST`, and so forth, because `@RequestMapping` maps all HTTP operations by default. Use `@RequestMapping(method=GET)` to narrow this mapping.
+NOTE: 以上例子不指定 `GET` 和 `PUT`, `POST`等等，因为 `@RequestMapping` 默认映射所有的HTTP操作。使用 `@RequestMapping(method=GET)` 缩小这种映射。
 
 
 == 使应用程序可执行
 
-Although it is possible to package this service as a traditional link:/understanding/WAR[WAR] file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application. You package everything in a single, executable JAR file, driven by a good old Java `main()` method. Along the way, you use Spring's support for embedding the link:/understanding/Tomcat[Tomcat] servlet container as the HTTP runtime, instead of deploying to an external instance.
+虽然可以将此服务打包为一个传统的 link:/understanding/WAR[WAR] 文件用于部署到外部应用服务器，更为简单的方法是创建了一个独立的应用程序。通过一个 good old Java `main()`方法，你能将一切打包成为一个单一的克执行 JAR 文件。在这一过程中，您使用Spring的提供的 link:/understanding/Tomcat[Tomcat]  servlet容器作为HTTP运行时，而不是将它部署的到一个外部实例在中。
 
 
 `src/main/java/hello/Application.java`
