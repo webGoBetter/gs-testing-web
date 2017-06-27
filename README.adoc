@@ -79,7 +79,7 @@ include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/ma
 include::complete/pom.xml[tag=test,indent=0]
 ----
 
-or if you are using Gradle:
+如果你使用的是Gradle:
 
 `build.gradle`
 [source,groovy]
@@ -159,7 +159,7 @@ include::complete/src/test/java/hello/WebLayerTest.java[tag=test]
 include::complete/src/main/java/hello/GreetingController.java[]
 ----
 
-and then
+然后
 
 `src/main/java/hello/GreetingService.java`
 [source,java]
