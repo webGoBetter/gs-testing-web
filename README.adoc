@@ -69,9 +69,9 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 
 == 测试应用
 
-Now that the application is running, you can test it. If it is running you can load the home page on http://localhost:8080. But to give yourself more confidence that the application is working when you make changes, you want to automate the testing.
+既然应用程序正在运行，你就可以测试它。如果它正在运行你可以加载主页 http://localhost:8080。但是，为了让您对应用程序在进行更改时更有信心，您需要自动化测试。
 
-The first thing you can do is write a simple sanity check test that will fail if the application context cannot start. First add Spring Test as a dependency to your pom.xml, in the test scope. If you are using Maven:
+您可以做的第一件事是编写一个简单明了的检查测试，如果应用程序上下文不能启动，它将失败。先在测试范围加Spring Test作为一个依赖项到你的pom.xml文件。如果你正在使用Maven：
 
 `pom.xml`
 [source,xml]
@@ -87,8 +87,7 @@ or if you are using Gradle:
 include::complete/build.gradle[tag=test,indent=0]
 ----
 
-Then create a test case with the `@RunWith` and `@SpringBootTest` annotations and an empty test method:
-
+然后创建一个使用了 `@RunWith` 和 `@SpringBootTest` 注释的测试用例和一个空的试验方法：
 `src/test/java/hello/ApplicationTest.java`
 [source,java]
 ----
@@ -110,7 +109,7 @@ public class ApplicationTest {
 }
 ----
 
-The `@SpringBootTest` annotation tells Spring Boot to go and look for a main configuration class (one with `@SpringBootApplication` for instance), and use that to start a Spring application context. You can run this test in your IDE or on the command line (`mvn test` or `gradle test`) and it should pass. To convince yourself that the context is creating your controller you could add an assertion:
+`@SpringBootTest`注释告诉Spring Boot去寻找主配置类（例如一个带有 `@SpringBootApplication` 的类），用以启动一个Spring应用程序上下文。你可以在你的IDE或在命令行中运行这个测试 (`mvn test` or `gradle test`) ，它应该会通过。为了使自己确信上下文正在创建控制器，可以添加断言：
 
 `src/test/java/hello/SmokeTest.java`
 [source,java]
